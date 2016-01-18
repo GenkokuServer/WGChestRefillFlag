@@ -1,0 +1,8 @@
+name: WGChestRefillFlag
+description: Auto-refilling functionality for containers within WorldGuard regions
+version: 0.1a
+load: postworld
+authors: [Martin Ambrus]
+softdepend: []
+depend: [WorldGuard, WGCustomFlags]
+main: com.martinambrus.wgchrf.WGChestRefillFlagPlugin
