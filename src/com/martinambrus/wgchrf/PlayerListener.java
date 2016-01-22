@@ -44,7 +44,7 @@ public class PlayerListener implements Listener {
     	if (block.getType().equals(Material.DISPENSER)) {
     		Boolean refills = (Boolean)Util.getFlagValue(this.wgp, event.getBlock().getLocation(), (Flag<?>)this.plugin.CHESTSAUTOFILL_FLAG);
 
-    		if (refills == true) {
+    		if (refills != null && refills == true) {
     			// re-add the same item that was just dispensed by a auto-refillable dispenser
     			((Dispenser) event.getBlock().getState()).getInventory().addItem(event.getItem());
     		}
