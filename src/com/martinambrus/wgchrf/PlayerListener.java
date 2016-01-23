@@ -3,7 +3,6 @@ package com.martinambrus.wgchrf;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -64,8 +63,6 @@ public class PlayerListener implements Listener {
 
 		InventoryHolder holder = event.getInventory().getHolder();
 		Location location = null;
-
-		Bukkit.getLogger().info(holder.toString());
 
 		if (holder instanceof Chest) {
 			location = ((Chest) holder).getBlock().getLocation();
