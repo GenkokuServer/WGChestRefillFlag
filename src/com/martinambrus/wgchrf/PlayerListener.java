@@ -3,11 +3,13 @@ package com.martinambrus.wgchrf;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Dispenser;
+import org.bukkit.block.DoubleChest;
 import org.bukkit.block.Dropper;
 import org.bukkit.block.Hopper;
 import org.bukkit.event.EventHandler;
@@ -63,8 +65,12 @@ public class PlayerListener implements Listener {
 		InventoryHolder holder = event.getInventory().getHolder();
 		Location location = null;
 
+		Bukkit.getLogger().info(holder.toString());
+
 		if (holder instanceof Chest) {
 			location = ((Chest) holder).getBlock().getLocation();
+		} else if (holder instanceof DoubleChest) {
+			location = ((DoubleChest) holder).getLocation();
 		} else if (holder instanceof Dropper) {
 			location = ((Dropper) holder).getBlock().getLocation();
 		} else if (holder instanceof Hopper) {
@@ -101,6 +107,8 @@ public class PlayerListener implements Listener {
 
 		if (holder instanceof Chest) {
 			location = ((Chest) holder).getBlock().getLocation();
+		} else if (holder instanceof DoubleChest) {
+			location = ((DoubleChest) holder).getLocation();
 		} else if (holder instanceof Dropper) {
 			location = ((Dropper) holder).getBlock().getLocation();
 		} else if (holder instanceof Hopper) {
