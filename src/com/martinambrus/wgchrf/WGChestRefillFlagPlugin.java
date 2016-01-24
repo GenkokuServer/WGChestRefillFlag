@@ -17,8 +17,10 @@
 
 package com.martinambrus.wgchrf;
 
+import java.io.IOException;
 import java.util.logging.Level;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -63,6 +65,13 @@ public class WGChestRefillFlagPlugin extends JavaPlugin
         this.getServer().getPluginManager().registerEvents(this.listener, this);
 
         this.wgcf.addCustomFlag(this.CHESTSAUTOFILL_FLAG);
+
+        try {
+        	Metrics metrics = new Metrics(this);
+            metrics.start();
+		} catch (IOException e) {
+			Bukkit.getLogger().warning("Failed to initialize Metrics.");
+		}
     }
 
     private boolean getWGCF()
