@@ -47,7 +47,10 @@ public class WGChestRefillFlagPlugin extends JavaPlugin {
 
         PlayerListener listener = new PlayerListener(this);
         this.getServer().getPluginManager().registerEvents(listener, this);
+    }
 
+    @Override
+    public void onLoad() {
         FlagRegistry registry = WorldGuard.getInstance().getFlagRegistry();
         try {
             // create a flag with the name "my-custom-flag", defaulting to true
@@ -64,13 +67,6 @@ public class WGChestRefillFlagPlugin extends JavaPlugin {
                 // types don't match - this is bad news! some other plugin conflicts with you
                 // hopefully this never actually happens
             }
-        }
-
-        try {
-            Metrics metrics = new Metrics(this);
-            metrics.start();
-        } catch (IOException e) {
-            Bukkit.getLogger().warning("Failed to initialize Metrics.");
         }
     }
 
